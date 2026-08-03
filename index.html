@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NR TOPUP BD - Trusted Topup Site</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; padding-bottom: 70px; }
+
+        /* Header Bar */
+        .navbar { background: #ffffff; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 20px; font-weight: 800; color: #0288d1; display: flex; align-items: center; gap: 8px; }
+        .btn-login { background: #0288d1; color: #fff; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; }
+
+        /* Top Announcement Notice */
+        .notice-bar { background: #0288d1; color: white; padding: 10px 15px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+        
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+
+        /* Banner Slider Demo */
+        .banner-box { background: linear-gradient(135deg, #0288d1, #005b9f); color: white; border-radius: 12px; padding: 25px 15px; text-align: center; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(2,136,209,0.2); }
+        .banner-box h2 { font-size: 20px; margin-bottom: 5px; }
+        .banner-box p { font-size: 13px; opacity: 0.9; }
+
+        /* Social/Support Buttons */
+        .support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .support-card { background: #0288d1; color: white; text-decoration: none; padding: 10px; border-radius: 8px; text-align: center; font-size: 12px; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .support-card i { font-size: 18px; }
+
+        /* Offer Cards */
+        .section-title { font-size: 18px; font-weight: 700; color: #1a252f; margin: 15px 0 10px; text-align: center; letter-spacing: 1px; }
+        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+        .offer-card { background: white; border-radius: 10px; padding: 15px 8px; text-align: center; border: 1px solid #eef2f5; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .offer-card h4 { font-size: 13px; color: #2c3e50; font-weight: 700; margin-top: 5px; }
+
+        /* Latest Orders Section */
+        .orders-box { background: white; border-radius: 12px; padding: 15px; border: 1px solid #eef2f5; margin-bottom: 20px; }
+        .orders-header { text-align: center; margin-bottom: 15px; }
+        .orders-header h3 { font-size: 16px; color: #1a252f; }
+        .orders-header p { font-size: 12px; color: #0288d1; font-weight: 600; }
+        
+        .order-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px dashed #f0f0f0; }
+        .order-item:last-child { border-bottom: none; }
+        .user-info { display: flex; align-items: center; gap: 10px; }
+        .avatar { width: 35px; height: 35px; background: #8e44ad; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
+        .user-details h5 { font-size: 13px; color: #333; }
+        .user-details p { font-size: 11px; color: #777; }
+        .badge-completed { background: #2ecc71; color: white; font-size: 11px; padding: 4px 10px; border-radius: 15px; font-weight: 600; }
+
+        /* Contact Section */
+        .contact-card { background: white; border-radius: 10px; padding: 12px 15px; display: flex; align-items: center; gap: 12px; margin-bottom: 10px; border: 1px solid #eef2f5; text-decoration: none; color: inherit; }
+        .contact-card i { font-size: 24px; color: #25d366; }
+        .contact-card.telegram i { color: #0088cc; }
+        .contact-info h5 { font-size: 14px; display: flex; align-items: center; gap: 5px; }
+        .contact-info p { font-size: 11px; color: #666; }
+
+        /* Bottom Fixed Navigation */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: white; display: flex; justify-content: space-around; padding: 8px 0; border-top: 1px solid #eee; box-shadow: 0 -2px 10px rgba(0,0,0,0.03); }
+        .nav-item { text-decoration: none; color: #7f8c8d; font-size: 10px; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .nav-item.active { color: #0288d1; font-weight: bold; }
+        .nav-item i { font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="navbar">
+        <div class="logo"><i class="fa-solid fa-gamepad"></i> NR TOPUP BD</div>
+        <a href="#" class="btn-login">Login</a>
+    </div>
+
+    <!-- Notice -->
+    <div class="notice-bar">
+        <span><b>Notice:</b> এখানে আমাদের সাইটে রাত দিন ২৪ ঘণ্টা অর্ডার করতে পারবেন।</span>
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+
+    <div class="container">
+        
+        <!-- Top Support Banner -->
+        <div class="banner-box">
+            <h2>টপআপ জনিত যেকোনো সমস্যার সমাধান নিন</h2>
+            <p>আমাদের সাপোর্ট টিম ২৪/৭ ঘন্টার সেবা প্রদান করছে</p>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="support-grid">
+            <a href="https://t.me/nrtopupshoptaligramchennel" class="support-card"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            <a href="#" class="support-card"><i class="fa-solid fa-users"></i> Join Group</a>
+            <a href="#" class="support-card"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+
+        <!-- Offer Section -->
+        <div class="section-title">OFFER</div>
+        <div class="card-grid">
+            <div class="offer-card">
+                <i class="fa-solid fa-gem" style="color:#0288d1; font-size: 20px;"></i>
+                <h4>UID Topup [BD]</h4>
+            </div>
+            <div class="offer-card">
+                <i class="fa-solid fa-calendar-week" style="color:#e67e22; font-size: 20px;"></i>
+                <h4>Weekly Offer</h4>
+            </div>
+            <div class="offer-card">
+                <i class="fa-solid fa-award" style="color:#f1c40f; font-size: 20px;"></i>
+                <h4>Level Up Pass</h4>
+            </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="orders-box">
+            <div class="orders-header">
+                <h3>Latest Orders</h3>
+                <p>সবচেয়ে সাম্প্রতিক ১০টি অর্ডার এক নজরে</p>
+            </div>
+            
+            <div class="order-item">
+                <div class="user-info">
+                    <div class="avatar" style="background:#9b59b6;">N</div>
+                    <div class="user-details">
+                        <h5>Md Najmul</h5>
+                        <p>Weekly Offer - ৳158</p>
+                    </div>
+                </div>
+                <span class="badge-completed">Completed</span>
+            </div>
+
+            <div class="order-item">
+                <div class="user-info">
+                    <div class="avatar" style="background:#2ecc71;">I</div>
+                    <div class="user-details">
+                        <h5>Ikram Hossain</h5>
+                        <p>2090 Diamond - ৳1358</p>
+                    </div>
+                </div>
+                <span class="badge-completed">Completed</span>
+            </div>
+
+            <div class="order-item">
+                <div class="user-info">
+                    <div class="avatar" style="background:#e67e22;">S</div>
+                    <div class="user-details">
+                        <h5>Sojib Ahamed</h5>
+                        <p>Monthly Offer - ৳790</p>
+                    </div>
+                </div>
+                <span class="badge-completed">Completed</span>
+            </div>
+        </div>
+
+        <!-- Contact Helpline -->
+        <div class="section-title" style="text-align: left; font-size: 16px;">Contact Us</div>
+        
+        <a href="https://wa.me/8801722586121" class="contact-card">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div class="contact-info">
+                <h5>WhatsApp HelpLine <i class="fa-solid fa-circle-check" style="color:#0288d1; font-size:12px;"></i></h5>
+                <p>সকাল ৮টা থেকে রাত ১২টা</p>
+            </div>
+        </a>
+
+        <a href="https://t.me/nrtopupshoptaligramchennel" class="contact-card telegram">
+            <i class="fa-brands fa-telegram"></i>
+            <div class="contact-info">
+                <h5>Telegram HelpLine <i class="fa-solid fa-circle-check" style="color:#0288d1; font-size:12px;"></i></h5>
+                <p>সকাল ৮টা থেকে রাত ১২টা</p>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-circle-play"></i>
+            <span>Tutorial</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-border-all"></i>
+            <span>TopUp</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-headset"></i>
+            <span>Contact Us</span>
+        </a>
+    </div>
+
+</body>
+</html>
